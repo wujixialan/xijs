@@ -4,7 +4,7 @@
  * @returns
  */
 function hyphenate(str: string, flag = '-') {
-  const hyphenateRE = /\B([A-Z])/g;
-  return str.replace(hyphenateRE, `${flag}$1`).toLowerCase();
+  const hyphenateReg = /([a-z0-9_])([A-Z])|([A-Z])([A-Z][a-z])/g;
+  return str.replace(hyphenateReg, `$1$3${flag}$2$4`).toLowerCase();
 }
 export default hyphenate;
